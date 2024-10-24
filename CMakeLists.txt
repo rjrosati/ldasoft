@@ -19,6 +19,10 @@ endforeach()
 set(CMAKE_C_COMPILER mpicc)
 
 project(ldasoft VERSION 1.0.0 LANGUAGES C)
+#set(OpenMP_C_FLAGS "-fopenmp")
+set(CMAKE_C_FLAGS "-I/usr/local/Cellar/libomp/19.1.2/include")
+set(OpenMP_C_LIB_NAMES "libomp")
+set(OpenMP_libomp_LIBRARY "/usr/local/Cellar/libomp/19.1.2/lib/libomp.dylib")
 
 # External packages
 find_package(GSL REQUIRED)
@@ -26,7 +30,6 @@ find_package(OpenMP REQUIRED)
 find_package(HDF5 REQUIRED)
 find_package(MPI REQUIRED)
 #find_package(MBH)
-
 
 # set cflags
 if(APPLE)
